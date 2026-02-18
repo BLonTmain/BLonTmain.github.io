@@ -1,0 +1,408 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace;
+            background: #000000;
+            color: #ffffff;
+            line-height: 1.5;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-weight: 300;
+            font-size: 2rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #ff0000;
+            padding-bottom: 10px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-weight: 300;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 25px;
+            color: #ff0000;
+            text-transform: uppercase;
+        }
+
+        .form-container {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .form-container:last-of-type {
+            margin-bottom: 0;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        legend {
+            font-weight: 400;
+            color: #ff0000;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #888888;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            background: #111111;
+            border: 1px solid #222222;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            border-radius: 0;
+            transition: all 0.15s ease;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="password"]:focus,
+        input[type="date"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #ff0000;
+            background: #1a1a1a;
+        }
+
+        input[type="text"]:hover,
+        input[type="email"]:hover,
+        input[type="tel"]:hover,
+        input[type="password"]:hover,
+        input[type="date"]:hover,
+        input[type="number"]:hover,
+        select:hover,
+        textarea:hover {
+            border-color: #333333;
+        }
+
+        .radio-group, .checkbox-group {
+            margin-bottom: 20px;
+            background: #111111;
+            padding: 15px;
+            border: 1px solid #222222;
+        }
+
+        .radio-group label, .checkbox-group label {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 25px;
+            color: #cccccc;
+            text-transform: none;
+            font-size: 0.95rem;
+            letter-spacing: 0;
+            cursor: pointer;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            background: #111111;
+            border: 1px solid #333333;
+            accent-color: #ff0000;
+        }
+
+        button, input[type="submit"], input[type="reset"] {
+            background: transparent;
+            color: #ff0000;
+            border: 2px solid #ff0000;
+            padding: 12px 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-right: 15px;
+            transition: all 0.15s ease;
+            font-family: inherit;
+            border-radius: 0;
+        }
+
+        button:hover, input[type="submit"]:hover {
+            background: #ff0000;
+            color: #000000;
+        }
+
+        input[type="reset"] {
+            border-color: #333333;
+            color: #666666;
+        }
+
+        input[type="reset"]:hover {
+            border-color: #ff0000;
+            color: #ff0000;
+            background: transparent;
+        }
+
+        small {
+            display: block;
+            color: #666666;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            font-family: monospace;
+            border-left: 2px solid #ff0000;
+            padding-left: 10px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #1a1a1a;
+            margin: 40px 0;
+        }
+
+        .form-note {
+            margin-top: 40px;
+            padding: 20px;
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            color: #888888;
+            font-size: 0.9rem;
+            text-align: center;
+            font-family: monospace;
+        }
+
+        .form-note em {
+            color: #ff0000;
+            font-style: normal;
+        }
+
+        select {
+            appearance: none;
+            background-image: linear-gradient(45deg, transparent 50%, #ff0000 50%);
+            background-position: calc(100% - 20px) center;
+            background-size: 10px 10px;
+            background-repeat: no-repeat;
+        }
+
+        select option {
+            background: #111111;
+            color: #ffffff;
+            padding: 10px;
+        }
+
+        select[multiple] {
+            background-image: none;
+            padding: 10px;
+        }
+
+        select[multiple] option {
+            padding: 8px;
+            margin: 2px 0;
+        }
+
+        select[multiple] option:checked {
+            background: #ff0000 linear-gradient(0deg, #ff0000 0%, #ff0000 100%);
+            color: #000000;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            background: #111111;
+            border: 1px solid #222222;
+            padding: 12px;
+            color: #888888;
+            margin-bottom: 20px;
+            font-family: monospace;
+        }
+
+        input[type="file"]::-webkit-file-upload-button {
+            background: transparent;
+            border: 1px solid #ff0000;
+            color: #ff0000;
+            padding: 5px 15px;
+            margin-right: 10px;
+            cursor: pointer;
+            font-family: monospace;
+        }
+
+        input[type="file"]:hover {
+            border-color: #333333;
+        }
+
+        * {
+            box-shadow: none !important;
+            text-shadow: none !important;
+            backdrop-filter: none !important;
+            border-radius: 0 !important;
+        }
+
+        ::selection {
+            background: #ff0000;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="form-container">
+        <h2>Форма заявки</h2>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Контактные данные</legend>
+
+                <label for="name_app">Имя</label>
+                <input type="text" id="name_app" name="name" placeholder="Иванов Иван" required>
+
+                <label for="email_app">Email</label>
+                <input type="email" id="email_app" name="email" placeholder="ivan@example.com" required>
+
+                <label for="phone_app">Телефон</label>
+                <input type="tel" id="phone_app" name="phone" placeholder="+7 (999) 123-45-67">
+
+                <label for="age_app">Возраст</label>
+                <input type="number" id="age_app" name="age" min="18" max="100" value="25">
+
+                <label for="contact_method">Способ связи</label>
+                <select id="contact_method" name="contact_method">
+                    <option value="email">Email</option>
+                    <option value="phone" selected>Телефон</option>
+                    <option value="whatsapp">WhatsApp</option>
+                </select>
+
+                <label for="message_app">Описание заявки</label>
+                <textarea id="message_app" name="message" rows="3" placeholder="Суть заявки..."></textarea>
+            </fieldset>
+
+            <button type="submit">Отправить</button>
+            <input type="reset" value="Очистить">
+        </form>
+    </div>
+
+    <div class="form-container">
+        <h2>Форма анкеты</h2>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Личные данные</legend>
+
+                <label for="fullname_surv">ФИО</label>
+                <input type="text" id="fullname_surv" name="fullname" placeholder="Петров Петр Петрович" required>
+
+                <label>Пол</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="male" checked> Мужской</label>
+                    <label><input type="radio" name="gender" value="female"> Женский</label>
+                    <label><input type="radio" name="gender" value="other"> Другой</label>
+                </div>
+
+                <label for="birthdate">Дата рождения</label>
+                <input type="date" id="birthdate" name="birthdate">
+
+                <label>Увлечения</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="hobby" value="sports"> Спорт</label>
+                    <label><input type="checkbox" name="hobby" value="music"> Музыка</label>
+                    <label><input type="checkbox" name="hobby" value="books" checked> Книги</label>
+                    <label><input type="checkbox" name="hobby" value="cinema"> Кино</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Дополнительно</legend>
+
+                <label for="languages">Языки программирования</label>
+                <select id="languages" name="languages[]" multiple size="4">
+                    <option value="html">HTML</option>
+                    <option value="css" selected>CSS</option>
+                    <option value="js">JavaScript</option>
+                    <option value="php">PHP</option>
+                    <option value="python">Python</option>
+                </select>
+                <small>Ctrl+клик для выбора нескольких</small>
+            </fieldset>
+
+            <input type="hidden" name="form_step" value="2">
+            <button type="submit">Отправить</button>
+            <input type="reset" value="Очистить">
+        </form>
+    </div>
+
+    <div class="form-container">
+        <h2>Форма регистрации</h2>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Учетные данные</legend>
+
+                <label for="username_reg">Логин</label>
+                <input type="text" id="username_reg" name="username" placeholder="user123" required>
+
+                <label for="email_reg">Email</label>
+                <input type="email" id="email_reg" name="email" placeholder="user@example.com" required>
+
+                <label for="password_reg">Пароль</label>
+                <input type="password" id="password_reg" name="password" placeholder="********" required>
+
+                <label for="confirm_pass">Подтверждение</label>
+                <input type="password" id="confirm_pass" name="confirm_password" placeholder="********" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Персональные данные</legend>
+
+                <label>Пол</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender_reg" value="male"> Мужской</label>
+                    <label><input type="radio" name="gender_reg" value="female"> Женский</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="agreement" value="yes" required> Согласие на обработку данных</label>
+                </div>
+
+                <label for="avatar">Аватар</label>
+                <input type="file" id="avatar" name="avatar" accept="image/*">
+            </fieldset>
+
+            <button type="submit">Регистрация</button>
+            <input type="reset" value="Сброс">
+        </form>
+    </div>
+
+    <div class="form-note">
+    </div>
+
+</body>
+</html>
