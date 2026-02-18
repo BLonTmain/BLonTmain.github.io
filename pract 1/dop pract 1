@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Учебный пример HTML-документа">
+    <meta name="author" content="Студент">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Пример HTML-документа</title>
+
+    <link rel="sheet" href="style.css">
+
+    <style>
+
+        h1 {
+            text-align: center;
+            color: darkblue;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<a id="top"></a>
+
+<h1>Демонстрация возможностей HTML</h1>
+
+<marquee behavior="scroll" direction="left" scrollamount="6">
+    Добро пожаловать
+</marquee>
+
+<hr>
+
+<div class="section">
+    <h2>Навигация</h2>
+
+    <ul>
+        <li><a href="#table">Таблица</a></li>
+        <li><a href="#links">Ссылки</a></li>
+        <li><a href="#about">О странице</a></li>
+    </ul>
+</div>
+
+<div class="section" id="table">
+
+    <h2>Расписание занятий</h2>
+
+    <table>
+
+        <tr>
+        <th>День недели</th>
+        <th>Время</th>
+        <th>кабинет</th>
+        <th>урок</th>
+    </tr>
+    <tr>
+        <td rowspan="3">Понедельник</td>
+        <td>9:00 – 10:30</td>
+        <td>212</td>
+        <td>ИТ</td>
+    </tr>
+    <tr>
+        <td>10:40 – 12:10</td>
+        <td>427</td>
+        <td>ФИЗ-РА</td>
+    </tr>
+    <tr>
+        <td>12:20 – 13:50</td>
+        <td>323</td>
+        <td>ОАП</td>
+    </tr>
+<tr>
+        <td rowspan="3">Вторник</td>
+        <td>9:00 – 10:30</td>
+        <td>327</td>
+        <td>МДК 0.4.</td>
+    </tr>
+    <tr>
+        <td>10:40 – 12:10</td>
+        <td>244</td>
+        <td>ЭВМ</td>
+    </tr>
+    <tr>
+        <td>12:20 – 13:50</td>
+        <td>413</td>
+        <td>ДМ с ЭМЛ</td>
+    </tr>
+    </table>
+
+</div>
+
+<div class="section" id="links">
+
+    <h2>Гиперссылки</h2>
+
+    <p>
+        Внешняя ссылка:
+        <a href="https://code.mu/ru/markup/book/prime/" target="_blank">
+            Учебник по HTML
+        </a>
+    </p>
+
+    <p>
+        Ссылка наверх:
+        <a href="#top">Перейти к началу страницы</a>
+    </p>
+
+</div>
+</body>
+</html>
