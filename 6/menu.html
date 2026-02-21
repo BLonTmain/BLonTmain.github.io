@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h3>Навигационное меню</h3>
+    
+    <img src="https://w7.pngwing.com/pngs/1015/72/png-transparent-blue-and-green-map-illustration-cartoon-map-euclidean-tourist-map-map-gemstone-angle-text.png" 
+         usemap="#navigation" 
+         alt="Навигационное меню" 
+         style="width:200px; height:auto; border:1px solid #ccc;">
+    
+    <map name="navigation">
+        <area shape="rect" coords="0,0,100,50" 
+              href="info.html?page=video" 
+              target="infoFrame" 
+              alt="Видео">
+        
+        <area shape="circle" coords="150,75,30" 
+              href="info.html?page=audio" 
+              target="infoFrame" 
+              alt="Аудио">
+        
+        <area shape="poly" coords="20,100,80,100,100,150,0,150" 
+              href="info.html?page=gallery" 
+              target="infoFrame" 
+              alt="Фото и GIF">
+    </map>
+    
+    <h4>Текстовое меню:</h4>
+    <ul>
+        <li><a href="info.html?page=video" target="infoFrame">Видео</a></li>
+        <li><a href="info.html?page=audio" target="infoFrame">Аудио</a></li>
+        <li><a href="info.html?page=gallery" target="infoFrame">Фото и GIF</a></li>
+    </ul>
+    
+</body>
+</html>
