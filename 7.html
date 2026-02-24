@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.4;
+        }
+        .section {
+            border: 1px solid #000;
+            margin: 20px 0;
+            padding: 15px;
+        }
+        .demo-box {
+            border: 1px solid #999;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 5px;
+            border: 1px solid #ccc;
+        }
+        hr {
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="section">
+        <h2>1. Демонстрация clamp() и z-index</h2>
+        
+        <div style="border:2px solid blue; padding:10px; margin-bottom:30px;">
+            <h3>clamp():</h3>
+            <p style="font-size: clamp(12px, 5vw, 24px); border:1px solid red; padding:5px;">
+                Этот текст меняет размер от 12px до 24px в зависимости от ширины окна
+            </p>
+            <p style="font-size: 16px; width: clamp(200px, 50%, 600px); border:1px solid green;">
+                Этот блок имеет ширину: clamp(200px, 50%, 600px)
+            </p>
+        </div>
+        
+        <div style="position: relative; height: 200px; border:2px solid black; margin-top:30px;">
+            <h3>z-index (смотреть порядок наложения):</h3>
+            <div style="position:absolute; top:30px; left:50px; width:150px; height:80px; background:red; z-index:1; padding:5px;">
+                z-index: 1 (красный)
+            </div>
+            <div style="position:absolute; top:60px; left:100px; width:150px; height:80px; background:green; z-index:3; padding:5px;">
+                z-index: 3 (зеленый) - выше красного
+            </div>
+            <div style="position:absolute; top:90px; left:150px; width:150px; height:80px; background:blue; z-index:2; padding:5px; color:white;">
+                z-index: 2 (синий) - выше красного, но ниже зеленого
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>2. Свойства position (4 блока)</h2>
+        
+        <div class="demo-box">
+            <h3>position: static (по умолчанию)</h3>
+            <div style="position:static; background:#eee; padding:10px; border:2px solid gray;">
+                Этот блок static. Свойства top/left не работают.
+                Попытка применить top:20px не даст эффекта.
+            </div>
+        </div>
+        
+        <div class="demo-box">
+            <h3>position: relative</h3>
+            <div style="position:relative; top:15px; left:20px; background:#ffe; padding:10px; border:2px solid orange;">
+                Этот блок relative. Сдвинут на 15px вниз и 20px вправо от своего обычного места.
+            </div>
+            <div style="margin-top:25px; padding:5px; border:1px dotted;">(Место, где был бы блок без сдвига)</div>
+        </div>
+        
+        <div class="demo-box" style="position:relative; height:150px;">
+            <h3>position: absolute (родитель relative)</h3>
+            <div style="position:absolute; bottom:10px; right:10px; background:#cfc; padding:10px; border:2px solid green;">
+                Абсолютный блок: bottom:10px; right:10px от родителя
+            </div>
+            <p>Родительский блок имеет position:relative. Абсолютный позиционируется относительно него.</p>
+        </div>
+        
+        <div class="demo-box">
+            <h3>position: fixed (блок внизу справа экрана)</h3>
+            <p>Фиксированный блок находится за пределами этого окна - в правом нижнем углу экрана.</p>
+        </div>
+        
+        <div class="demo-box" style="height:150px; overflow:auto; border:2px solid #999;">
+            <h3>position: sticky (дополнительно)</h3>
+            <div style="position:sticky; top:0; background:#ffa; padding:10px; border:2px solid gold;">
+                Я sticky - прилипает к верху при прокрутке
+            </div>
+            <p>Строка 1 контента для прокрутки</p>
+            <p>Строка 2 контента для прокрутки</p>
+            <p>Строка 3 контента для прокрутки</p>
+            <p>Строка 4 контента для прокрутки</p>
+        </div>
+    </div>
+    
+    <div style="position:fixed; bottom:20px; right:20px; background:#ccf; padding:15px; border:3px solid blue; z-index:999;">
+        <strong>position: fixed</strong><br>
+        fixed
+    </div>
+    
+    <div class="section">
+        <h2>3. Гибкая сетка на Flexbox</h2>
+        
+        <div style="display:flex; flex-wrap:wrap; gap:15px; border:2px solid #333; padding:15px; background:#fafafa;">
+            <div style="flex:1 1 200px; background:#ddf; padding:15px; border:2px solid #00f;">
+                flex: 1 1 200px<br>Обычный элемент
+            </div>
+            <div style="flex:1 1 200px; background:#dfd; padding:15px; border:2px solid #0f0;">
+                flex: 1 1 200px<br>Обычный элемент
+            </div>
+            <div style="flex:2 1 200px; background:#fdd; padding:15px; border:2px solid #f00; order:-1;">
+                flex: 2 1 200px<br>order: -1 (первый)<br>flex-grow:2
+            </div>
+            <div style="flex:1 1 200px; background:#ffd; padding:15px; border:2px solid #ff0; align-self:flex-end;">
+                align-self: flex-end<br>(прижат к низу)
+            </div>
+            <div style="flex:0 0 250px; background:#dff; padding:15px; border:2px solid #0ff;">
+                flex: 0 0 250px<br>Не сжимается, ровно 250px
+            </div>
+        </div>
+        
+        <div style="margin-top:20px;">
+            <p><strong>Свойства flex-контейнера:</strong> display:flex; flex-wrap:wrap; gap:15px</p>
+            <p><strong>Свойства flex-элементов:</strong> flex-grow, flex-shrink, flex-basis, order, align-self</p>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>4. Grid Layout: свойства контейнера и элементов</h2>
+        
+        <div style="display:grid; 
+                    grid-template-columns: 1fr 2fr 1fr; 
+                    grid-template-rows: 80px 120px 80px;
+                    gap:10px;
+                    border:2px solid #333; 
+                    padding:15px;
+                    background:#eee;">
+            
+            <div style="background:#faa; padding:10px; border:2px solid red;
+                        grid-column: 1/2; grid-row: 1/2;">
+                1: обычная ячейка
+            </div>
+            
+            <div style="background:#afa; padding:10px; border:2px solid green;
+                        grid-column: 2/4; grid-row: 1/2;">
+                2: grid-column: 2/4 (занимает 2 и 3 колонки)
+            </div>
+            
+            <div style="background:#aaf; padding:10px; border:2px solid blue;
+                        grid-column: 1/2; grid-row: 2/4;">
+                3: grid-row: 2/4 (занимает 2 и 3 строки)
+            </div>
+            
+            <div style="background:#ffa; padding:10px; border:2px solid orange;
+                        grid-column: 2/3; grid-row: 2/3;
+                        justify-self:start; align-self:start;">
+                4: start-start
+            </div>
+            
+            <div style="background:#faf; padding:10px; border:2px solid purple;
+                        grid-column: 3/4; grid-row: 2/3;
+                        justify-self:end; align-self:end;">
+                5: end-end
+            </div>
+            
+            <div style="background:#aff; padding:10px; border:2px solid teal;
+                        grid-column: 2/4; grid-row: 3/4;">
+                6: занимает 2-3 колонки в 3 строке
+            </div>
+        </div>
+        
+        <div style="margin-top:30px;">
+            <h3>Свойства grid-контейнера:</h3>
+            <ul>
+                <li><code>display: grid</code></li>
+                <li><code>grid-template-columns: 1fr 2fr 1fr</code> (три колонки)</li>
+                <li><code>grid-template-rows: 80px 120px 80px</code> (три строки)</li>
+                <li><code>gap: 10px</code></li>
+            </ul>
+            
+            <h3>Свойства grid-элементов:</h3>
+            <ul>
+                <li><code>grid-column: start/end</code> — задает занимаемые колонки</li>
+                <li><code>grid-row: start/end</code> — задает занимаемые строки</li>
+                <li><code>justify-self</code> — выравнивание по горизонтали (start, end, center, stretch)</li>
+                <li><code>align-self</code> — выравнивание по вертикали (start, end, center, stretch)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <hr>
+</body>
+</html>
