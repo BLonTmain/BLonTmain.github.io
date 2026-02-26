@@ -1,1 +1,209 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семантическая вёрстка</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: #faf3e8;
+            color: #333;
+        }
+        .wrapper {
+            max-width: 1100px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            border-bottom: 5px solid #e67e22;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            font-weight: normal;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-style: italic;
+        }
+        nav {
+            background: #34495e;
+            padding: 10px 20px;
+            text-align: center;
+            border-bottom: 2px solid #e67e22;
+        }
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            background: #e67e22;
+            color: white;
+            border-radius: 4px;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+        }
+        .content {
+            flex: 3;
+            min-width: 300px;
+        }
+        article {
+            background: #f9f9f9;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-left: 4px solid #e67e22;
+            border-radius: 0 8px 8px 0;
+        }
+        article header {
+            background: none;
+            color: #2c3e50;
+            padding: 0 0 10px 0;
+            border-bottom: 1px dashed #ccc;
+            text-align: left;
+            border-bottom: none;
+        }
+        article header h2 {
+            margin: 0 0 5px 0;
+            color: #e67e22;
+        }
+        article header p {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        section {
+            margin-top: 20px;
+        }
+        section h3 {
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        aside {
+            flex: 1;
+            min-width: 220px;
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 4px solid #e67e22;
+        }
+        aside h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        aside ul {
+            padding-left: 20px;
+        }
+        aside li {
+            margin-bottom: 8px;
+        }
+        aside a {
+            color: #e67e22;
+            text-decoration: none;
+        }
+        aside a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: #2c3e50;
+            color: #bdc3c7;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            border-top: 5px solid #e67e22;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        @media screen and (max-width: 700px) {
+            main {
+                flex-direction: column;
+            }
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Семантический</h1>
+        </header>
+        
+        <nav>
+            <a href="#">Главная</a>
+            <a href="#">Статьи</a>
+            <a href="#">Блог</a>
+            <a href="#">FAQ</a>
+            <a href="#">Контакты</a>
+        </nav>
+        
+        <main>
+            <div class="content">
+                <article>
+                    <header>
+                        <h2>Что такое семантическая вёрстка?</h2>
+                        <p>Опубликовано: <time datetime="2026-02-25">25 февраля 2026</time></p>
+                    </header>
+                    <p>Семантическая вёрстка — это подход к созданию веб-страниц с использованием HTML-тегов в соответствии с их смысловым значением. Это улучшает доступность, SEO и читаемость кода.</p>
+                    <section>
+                        <h3>Основные теги</h3>
+                        <p>Ключевые теги: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code> и <code>&lt;footer&gt;</code>.</p>
+                    </section>
+                    <section>
+                        <h3>Преимущества</h3>
+                        <p>Правильно структурированный документ легче поддерживать и развивать. Поисковые системы лучше понимают контент.</p>
+                    </section>
+                </article>
+                
+                <article>
+                    <header>
+                        <h2>Почему стоит использовать семантику?</h2>
+                        <p>Опубликовано: <time datetime="2026-02-20">20 февраля 2026</time></p>
+                    </header>
+                    <p>Семантические теги делают код самодокументируемым. Разработчику сразу ясно, где шапка, где навигация, а где основной контент.</p>
+                    <section>
+                        <h3>Пример из жизни</h3>
+                        <p>Представьте, что вы читаете книгу с чёткими заголовками и разделами. Семантическая вёрстка создаёт такую же структуру для браузера и скринридеров.</p>
+                    </section>
+                </article>
+            </div>
+            
+            <aside>
+                <h3>Интересные ссылки</h3>
+                <ul>
+                    <li><a href="#">MDN: Семантика в HTML</a></li>
+                    <li><a href="#">Документация по тегам</a></li>
+                    <li><a href="#">Примеры доступности</a></li>
+                    <li><a href="#">Новости веб-стандартов</a></li>
+                </ul>
+                <p><em>— Адаптивный дизайн включён.</em></p>
+            </aside>
+        </main>
+        
+        <footer>
+            <p>&copy; Все права защищены</p>
+            <p>Контакты: <a href="mailto:info@example.com" style="color: #e67e22;">info@example.com</a></p>
+        </footer>
+    </div>
+</body>
+</html>
