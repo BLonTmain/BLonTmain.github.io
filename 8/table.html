@@ -1,1 +1,92 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Табличная вёрстка</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        td, th {
+            border: 1px solid #ccc;
+            padding: 15px;
+            vertical-align: top;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+        .sidebar {
+            background-color: #f9f9f9;
+            width: 25%;
+        }
+        .content {
+            width: 75%;
+        }
+        @media screen and (max-width: 600px) {
+            table, tr, td, tbody {
+                display: block;
+                width: 100%;
+            }
+            tr {
+                margin-bottom: 10px;
+                display: block;
+                border: 1px solid #ccc;
+            }
+            td {
+                display: block;
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="2" class="header">
+                <h1>табличная вёрстка</h1>
+                <p>Добро пожаловать!</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="sidebar">
+                <h3>Боковая панель</h3>
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">Новости</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">О нас</a></li>
+                </ul>
+                <p>Здесь может быть дополнительная информация, ссылки или реклама.</p>
+            </td>
+            <td class="content">
+                <h2>Основной контент</h2>
+                <p>Это пример страницы, свёрстанной с помощью таблицы. Табличная вёрстка когда-то была очень популярна, но сейчас её вытеснили более гибкие методы.</p>
+                <p>Строки и столбцы таблицы позволяют легко создавать макеты с колонками. Однако такой подход сложнее адаптировать под мобильные устройства.</p>
+                <p><strong>Интересный факт:</strong> В данном примере добавлены медиазапросы, чтобы на узких экранах таблица превращалась в блочные элементы.</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="footer">
+                &copy; Все права защищены.
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
