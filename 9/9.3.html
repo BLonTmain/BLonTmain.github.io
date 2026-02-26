@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #container {
+            width: 600px;
+            height: 400px;
+            border: 2px solid black;
+            position: relative;
+            margin-top: 20px;
+            background: #fafafa;
+        }
+        #square {
+            width: 50px;
+            height: 50px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>Задание 3: Квадрат бьется о границы</h1>
+    <p>Квадрат движется случайным образом, отскакивает от стенок и меняет цвет при ударе.</p>
+    
+    <div id="container">
+        <div id="square"></div>
+    </div>
+
+    <script>
+        const square = document.getElementById('square');
+        const container = document.getElementById('container');
+        
+        let x = 0;
+        let y = 0;
+        let dx = 2;
+        let dy = 2;
+        let animationId = null;
+        
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        
+        function moveSquare() {
+            const containerWidth = container.clientWidth;
+            const containerHeight = container.clientHeight;
+            const squareSize = 50;
+            
+            x += dx;
+            y += dy;
+            
+            if (x + squareSize >= containerWidth) {
+                x = containerWidth - squareSize;
+                dx = -dx;
+                square.style.background = getRandomColor();
+            }
+            
+            if (x <= 0) {
+                x = 0;
+                dx = -dx;
+                square.style.background = getRandomColor();
+            }
+            
+            if (y + squareSize >= containerHeight) {
+                y = containerHeight - squareSize;
+                dy = -dy;
+                square.style.background = getRandomColor();
+            }
+            
+            if (y <= 0) {
+                y = 0;
+                dy = -dy;
+                square.style.background = getRandomColor();
+            }
+            
+            square.style.left = x + 'px';
+            square.style.top = y + 'px';
+            
+            animationId = requestAnimationFrame(moveSquare);
+        }
+        
+        window.onload = function() {
+            dx = Math.random() * 3 + 1;
+            dy = Math.random() * 3 + 1;
+            x = Math.random() * (container.clientWidth - 50);
+            y = Math.random() * (container.clientHeight - 50);
+            square.style.left = x + 'px';
+            square.style.top = y + 'px';
+            
+            startAnimation();
+        };
+        
+        function startAnimation() {
+            if (!animationId) {
+                animationId = requestAnimationFrame(moveSquare);
+            }
+        }
+    </script>
+</body>
+</html>
