@@ -1,1 +1,80 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .object {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+        .obj1 {
+            background: red;
+            animation: rotate 3s infinite linear;
+        }
+        .obj2 {
+            background: blue;
+            animation: scale 2s infinite alternate;
+        }
+        .obj3 {
+            background: green;
+            animation: skew 2s infinite alternate;
+        }
+        .obj4 {
+            background: orange;
+            animation: translate 3s infinite alternate;
+        }
+        .obj5 {
+            background: purple;
+            animation: complex 4s infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes scale {
+            from { transform: scale(1); }
+            to { transform: scale(1.5); }
+        }
+        @keyframes skew {
+            from { transform: skew(0deg); }
+            to { transform: skew(20deg, 10deg); }
+        }
+        @keyframes translate {
+            from { transform: translate(0, 0); }
+            to { transform: translate(50px, -30px); }
+        }
+        @keyframes complex {
+            0% { transform: rotate(0deg) scale(1); opacity: 1; }
+            25% { transform: rotate(90deg) scale(1.2); opacity: 0.8; }
+            50% { transform: rotate(180deg) scale(1); opacity: 0.6; }
+            75% { transform: rotate(270deg) scale(0.8); opacity: 0.8; }
+            100% { transform: rotate(360deg) scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="object obj1">Вращение</div>
+        <div class="object obj2">Масштаб</div>
+        <div class="object obj3">Наклон</div>
+        <div class="object obj4">Движение</div>
+        <div class="object obj5">Комплекс</div>
+    </div>
+</body>
+</html>
