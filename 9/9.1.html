@@ -1,1 +1,58 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 1 - Прыгающий предмет</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .ball-container {
+            position: relative;
+            width: 150px;
+            height: 250px;
+            margin: 50px auto;
+        }
+        .ball {
+            width: 100px;
+            height: 100px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            animation: jump 1s infinite ease-in-out;
+        }
+        .shadow {
+            width: 100px;
+            height: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            animation: shadow 1s infinite ease-in-out;
+        }
+        @keyframes jump {
+            0% { transform: translateY(0) scale(1, 1); }
+            30% { transform: translateY(-150px) scale(1.1, 0.9); }
+            50% { transform: translateY(-150px) scale(1, 1); }
+            80% { transform: translateY(0) scale(1, 0.8); }
+            100% { transform: translateY(0) scale(1, 1); }
+        }
+        @keyframes shadow {
+            0% { width: 100px; opacity: 0.3; }
+            30% { width: 60px; opacity: 0.1; }
+            50% { width: 60px; opacity: 0.1; }
+            80% { width: 120px; opacity: 0.5; }
+            100% { width: 100px; opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+    <div class="ball-container">
+        <div class="ball"></div>
+        <div class="shadow"></div>
+    </div>
+</body>
+</html>
