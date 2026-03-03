@@ -1,0 +1,69 @@
+@import url('imported.css'); 
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+.section {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#unique-demo {
+    background-color: #ffeb3b;
+    padding: 10px;
+    border: 2px dashed #f57c00;
+}
+
+.section p {
+    color: #555;
+}
+
+.section > div {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #e9e9e9;
+}
+
+.demo-link:hover {
+    color: #d32f2f;
+    text-decoration: underline;
+}
+.demo-input:focus {
+    border: 3px solid #3f51b5;
+    background-color: #e8eaf6;
+    outline: none;
+}
+
+.demo-text::first-letter {
+    font-size: 2em;
+    color: #b71c1c;
+    font-weight: bold;
+}
+.demo-text::first-line {
+    font-style: italic;
+    background-color: #d1c4e9;
+}
+
+.demo-before-after::before {
+    content: "⏩ ";
+    font-weight: bold;
+    color: #388e3c;
+}
+.demo-before-after::after {
+    content: " ⏪";
+    font-weight: bold;
+    color: #388e3c;
+}
