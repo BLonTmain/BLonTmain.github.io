@@ -1,0 +1,10 @@
+.imported-demo {
+    background-color: #e0f7fa;
+    padding: 15px;
+    border-left: 6px solid #00796b;
+    font-family: 'Courier New', monospace;
+}
+.imported-demo h2 {
+    color: #00796b;
+    text-transform: uppercase;
+}
