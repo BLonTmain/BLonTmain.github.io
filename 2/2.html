@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .internal-style {
+            background-color: #c8e6c9;
+            padding: 15px;
+            border-radius: 12px;
+            border: 2px solid #2e7d32;
+        }
+        .internal-style h3 {
+            font-family: 'Times New Roman', serif;
+            text-shadow: 2px 2px 4px #9e9e9e;
+        }
+        .internal-style p {
+            color: #1b5e20;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
 
+    <div class="section">
+        <h2>1. Внешняя таблица стилей + @import</h2>
+        <div class="imported-demo">
+            <h2>Этот блок стилизован через @import (из imported.css)</h2>
+            <p>Стили для этого блока находятся во внешнем файле <code>imported.css</code>, который подключен в <code>style.css</code> через <code>@import</code>.</p>
+        </div>
+        <p>А этот параграф оформлен через селектор потомков из <code>style.css</code> (внешняя таблица).</p>
+    </div>
+
+    <div class="section internal-style">
+        <h2>2. Внутренние стили (в теге &lt;style&gt;)</h2>
+        <h3>Заголовок с внутренним стилем</h3>
+        <p>Этот абзац и весь блок оформлены с помощью внутренней таблицы стилей, которая находится внутри &lt;head&gt;.</p>
+    </div>
+
+    <div class="section">
+        <h2>3. Встроенные стили (атрибут style)</h2>
+        <p style="color: #b71c1c; font-size: 20px; background-color: #ffcdd2; padding: 10px; border-left: 5px solid #b71c1c;">
+            Этот абзац полностью оформлен через атрибут <code>style</code> прямо в HTML-теге. Он имеет красный цвет, увеличенный шрифт и розовый фон.
+        </p>
+        <p style="font-weight: bold; border: 3px dotted #0d47a1; padding: 8px;">
+            Ещё один пример встроенного стиля: жирный текст и синяя пунктирная рамка.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>4. Псевдоклассы и псевдоэлементы</h2>
+        
+        <h3>Псевдоклассы (2 примера):</h3>
+        <p><strong>:hover</strong> — наведи курсор на <a href="#" class="demo-link">эту ссылку</a>, и она станет красной.</p>
+        <p><strong>:focus</strong> — кликни в поле ввода, чтобы увидеть синюю рамку:</p>
+        <input type="text" class="demo-input" placeholder="Пример поля" style="width: 300px;">
+
+        <h3>Псевдоэлементы (2 примера):</h3>
+        <p><strong>::first-letter и ::first-line</strong>:</p>
+        <div class="demo-text">
+            Первая буква этого абзаца будет большой и красной. Первая строка (до переноса) будет курсивом и с фиолетовым фоном. Обрати внимание, как это работает при изменении ширины окна.
+        </div>
+
+        <p><strong>::before и ::after</strong>:</p>
+        <div class="demo-before-after">
+            У этого текста до и после появятся стрелки благодаря псевдоэлементам.
+        </div>
+    </div>
+
+    <div id="unique-demo" class="section">
+        <h2>Блок с ID-селектором</h2>
+        <p>Этот блок стилизован через <code>#unique-demo</code> во внешней таблице стилей. Здесь также проверяется работа селектора потомков (цвет текста).</p>
+    </div>
+
+    <div class="section">
+        <h2>Дочерний селектор ( &gt; )</h2>
+        <div>
+            <p>Этот параграф находится внутри div, который является прямым потомком .section, поэтому у него серый фон.</p>
+        </div>
+        <p>А этот параграф не имеет дополнительной обертки div, поэтому стиль дочернего селектора на него не действует.</p>
+    </div>
+</body>
+</html>
