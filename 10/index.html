@@ -1,1 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №10: Навигация и слайдеры</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-circle"></span>
+                <span class="logo-text">Company</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#" class="active">Главная</a></li>
+                <li><a href="#">О нас</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Услуги ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Веб-разработка</a></li>
+                        <li><a href="#">Дизайн</a></li>
+                        <li><a href="#">SEO оптимизация</a></li>
+                        <li><a href="#">Маркетинг</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Портфолио</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+            
+            <button class="login-btn">Войти</button>
+            
+            <div class="menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
+    <div class="main-container">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Меню</h3>
+                <button class="close-sidebar" onclick="toggleSidebar()">✕</button>
+            </div>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="#">
+                        <span>Главная</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>Профиль</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>Настройки</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>Проекты</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>Статистика</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>Сообщения</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <button class="sidebar-toggle" onclick="toggleSidebar()">
+            <span>▶</span>
+        </button>
+
+        <div class="content">
+            <h1>Слайдер с анимацией</h1>
+            
+            <div class="slider-container">
+                <div class="slider" id="slider">
+                    <div class="slide active">
+                        <img src="https://via.placeholder.com/1000x500/3498db/ffffff?text=Слайд+1" alt="Слайд 1">
+                        <div class="slide-caption">
+                            <h2>Добро пожаловать на наш сайт</h2>
+                            <p>Мы создаем удивительные веб-решения</p>
+                        </div>
+                    </div>
+                    
+                    <div class="slide">
+                        <img src="https://via.placeholder.com/1000x500/e74c3c/ffffff?text=Слайд+2" alt="Слайд 2">
+                        <div class="slide-caption">
+                            <h2>Современный дизайн</h2>
+                            <p>Инновационные подходы к разработке</p>
+                        </div>
+                    </div>
+                    
+                    <div class="slide">
+                        <img src="https://via.placeholder.com/1000x500/2ecc71/ffffff?text=Слайд+3" alt="Слайд 3">
+                        <div class="slide-caption">
+                            <h2>Адаптивная верстка</h2>
+                            <p>Идеально на всех устройствах</p>
+                        </div>
+                    </div>
+                    
+                    <div class="slide">
+                        <img src="https://via.placeholder.com/1000x500/f1c40f/2c3e50?text=Слайд+4" alt="Слайд 4">
+                        <div class="slide-caption">
+                            <h2>Интерактивные элементы</h2>
+                            <p>Анимация и эффекты</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="slider-btn prev" onclick="prevSlide()">❮</button>
+                <button class="slider-btn next" onclick="nextSlide()">❯</button>
+                
+                <div class="slider-dots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+            
+            <div class="info-cards">
+                <div class="card">
+                    <h3>Веб-разработка</h3>
+                    <p>Создание современных сайтов и приложений</p>
+                </div>
+                <div class="card">
+                    <h3>Дизайн</h3>
+                    <p>Уникальный дизайн для вашего бизнеса</p>
+                </div>
+                <div class="card">
+                    <h3>Поддержка</h3>
+                    <p>Круглосуточная техническая поддержка</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
